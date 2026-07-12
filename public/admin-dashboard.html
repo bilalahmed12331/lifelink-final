@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — LifeLink</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar-overlay" id="adminSidebarOverlay"></div>
+
+<div class="dash">
+  <aside class="sidebar" id="adminSidebar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 24"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#FF5170" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LifeLink
+    </a>
+    <div class="sidebar-user">
+      <div class="avatar" id="adminSideAvatar">AD</div>
+      <div><b id="adminSideName">Admin</b><span>Administrator</span></div>
+    </div>
+    <nav class="side-nav">
+      <button data-view="requests" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/></svg>Blood Requests</button>
+      <button data-view="donors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Donors</button>
+      <button data-view="patients"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Patients</button>
+      <button class="logout-btn" id="adminLogoutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Logout</button>
+    </nav>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <button class="topbar-toggle" id="adminTopbarToggle"><span></span><span></span><span></span></button>
+      <div class="logo"><svg viewBox="0 0 40 24" width="30"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#DE1B3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+
+    <main class="dash-main">
+
+      <!-- ===================== BLOOD REQUESTS ===================== -->
+      <section class="dash-view active" id="view-requests">
+        <div class="dash-head">
+          <div><h1>Blood Requests</h1><p>View and manage all blood requests submitted by patients.</p></div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:22px;">
+          <div class="widget"><b id="statTotalRequests">0</b><span>Total Requests</span></div>
+          <div class="widget"><b id="statOpenRequests">0</b><span>Open Requests</span></div>
+          <div class="widget"><b id="statCriticalRequests">0</b><span>Critical Requests</span></div>
+          <div class="widget"><b id="statCompletedRequests">0</b><span>Completed</span></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:14px;">All Blood Requests</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Patient</th><th>Blood Group</th><th>Hospital</th><th>City</th><th>Urgency</th><th>Status</th><th>Date</th></tr></thead>
+              <tbody id="adminRequestsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== DONORS ===================== -->
+      <section class="dash-view" id="view-donors">
+        <div class="dash-head">
+          <div><h1>Registered Donors</h1><p>View all donor profiles and their availability status.</p></div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:22px;">
+          <div class="widget"><b id="statTotalDonors">0</b><span>Total Donors</span></div>
+          <div class="widget"><b id="statAvailableDonors">0</b><span>Available</span></div>
+          <div class="widget"><b id="statUnavailableDonors">0</b><span>Unavailable</span></div>
+          <div class="widget"><b id="statRecentDonors">0</b><span>New This Week</span></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:14px;">All Donors</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Name</th><th>Email</th><th>Blood Group</th><th>City</th><th>Phone</th><th>Availability</th><th>Last Donation</th></tr></thead>
+              <tbody id="adminDonorsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PATIENTS ===================== -->
+      <section class="dash-view" id="view-patients">
+        <div class="dash-head">
+          <div><h1>Registered Patients</h1><p>View all patient accounts and their request history.</p></div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:22px;">
+          <div class="widget"><b id="statTotalPatients">0</b><span>Total Patients</span></div>
+          <div class="widget"><b id="statActivePatients">0</b><span>Active Patients</span></div>
+          <div class="widget"><b id="statPatientRequests">0</b><span>Total Requests</span></div>
+          <div class="widget"><b id="statRecentPatients">0</b><span>New This Week</span></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:14px;">All Patients</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Name</th><th>Email</th><th>City</th><th>Phone</th><th>Requests</th><th>Joined</th></tr></thead>
+              <tbody id="adminPatientsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

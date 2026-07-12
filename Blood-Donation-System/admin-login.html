@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Log in — LifeLink</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-side">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#FF5170" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LifeLink
+    </a>
+    <div class="auth-side-content">
+      <h2>Admin Access Portal</h2>
+      <p>Log in to manage blood requests, donor profiles, and patient accounts.</p>
+    </div>
+    <div class="auth-side-pulse">
+      <svg viewBox="0 0 500 120" preserveAspectRatio="none"><polyline points="0,60 100,60 120,20 145,100 165,40 185,60 260,60 285,10 305,110 330,60 500,60" fill="none" stroke="#FF5170" stroke-width="2"/></svg>
+    </div>
+  </div>
+  <div class="auth-main">
+    <div class="auth-card">
+      <a href="index.html" class="back-link">← Back to home</a>
+      <h1>Admin Log in</h1>
+      <p class="sub">Enter admin credentials to access the admin panel.</p>
+
+      <form id="adminLoginForm" novalidate>
+        <div class="field">
+          <label for="adminEmail">Admin email</label>
+          <div class="input-wrap">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+            <input type="email" id="adminEmail" placeholder="lifelink123@gmail.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="adminPassword">Password</label>
+          <div class="input-wrap">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <input type="password" id="adminPassword" placeholder="••••••••" required>
+            <button type="button" class="pw-toggle" data-target="adminPassword">Show</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="adminLoginSubmit">Admin Log in</button>
+      </form>
+
+      <p class="field-hint" style="text-align:center;margin-top:14px;">Default admin credentials — email: lifelink123@gmail.com · password: lifelink123</p>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeLink — Blood Donation &amp; Request Network</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#DE1B3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LifeLink
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <div class="nav-actions" style="margin-top:10px;">
+        
+      </div>
+    </nav>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost btn-sm">Log in</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign up</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Every 2 seconds, someone needs blood</span>
+      <h1>Your blood can <em>save another life.</em></h1>
+      <p class="lead">LifeLink connects willing donors with patients who need blood right now — matched by blood group, city and urgency, in one place.</p>
+      <div class="hero-cta">
+        <a href="signup.html" class="btn btn-primary">Become a donor</a>
+        <a href="signup.html" class="btn btn-ghost">Request blood</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pulse-wrap">
+        <div class="pulse-label"><span>LIVE NETWORK ACTIVITY</span><span>O+ · A− · B+ · AB+</span></div>
+        <svg class="pulse-svg" viewBox="0 0 400 140" preserveAspectRatio="none">
+          <polyline class="pulse-line" points="0,70 60,70 80,30 100,110 120,50 140,70 200,70 220,20 240,120 260,70 400,70"/>
+          <circle class="pulse-dot" cx="398" cy="70" r="5"/>
+        </svg>
+        <div class="mini-stats">
+          <div><b>12,480</b><span>Registered donors</span></div>
+          <div><b>3,062</b><span>Lives supported</span></div>
+          <div><b>58</b><span>Cities covered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 1160 34" preserveAspectRatio="none"><path d="M0,17 L400,17 L430,5 L460,29 L490,17 L1160,17"/></svg>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About blood donation</span>
+      <h2>One donation. Up to three lives.</h2>
+      <p>Whole blood is separated into red cells, platelets and plasma — each going to a different patient. A single visit, roughly an hour of your time, can support a surgery patient, a cancer patient in treatment and a newborn all at once.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Safe, screened, and supervised by medical staff</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Takes about 45–60 minutes start to finish</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Your body replaces the donated volume within days</li>
+      </ul>
+    </div>
+    <div class="about-card reveal">
+      <h3>Who can donate?</h3>
+      <p>Most healthy adults aged 18–65, weighing over 50kg, can donate every 90 days. Eligibility depends on recent illness, medication and travel history — our AI Assistant inside the donor dashboard can walk you through it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BENEFITS ===================== -->
+<section id="benefits" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why donate</span>
+      <h2>Good for them. Good for you, too.</h2>
+      <p>Donating blood is one of the few acts of generosity that also benefits the giver.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/></svg></div>
+        <h3>Saves lives directly</h3>
+        <p>Every unit donated can help patients facing surgery, trauma, childbirth complications or chronic illness.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Free mini health check</h3>
+        <p>Every donation includes a quick check of pulse, blood pressure, haemoglobin and temperature.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3>Supports heart health</h3>
+        <p>Regular donation is linked with healthier iron levels and reduced strain on the cardiovascular system.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Strengthens community</h3>
+        <p>Donors become part of a standing network hospitals can call on the moment an urgent request comes in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section>
+  <div class="container">
+    <div class="stats-band reveal">
+      <div class="stats-grid">
+        <div class="stat-item"><b>12.4K+</b><span>Registered donors</span></div>
+        <div class="stat-item"><b>3,062</b><span>Requests fulfilled</span></div>
+        <div class="stat-item"><b>58</b><span>Cities covered</span></div>
+        <div class="stat-item"><b>24/7</b><span>Emergency support</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The donation process</span>
+      <h2>Four steps, about an hour</h2>
+    </div>
+    <div class="process-grid">
+      <svg class="process-line" viewBox="0 0 1160 22" preserveAspectRatio="none"><path d="M0,11 L1160,11" stroke="#F7D3D9" stroke-width="2" stroke-dasharray="6 6"/></svg>
+      <div class="process-step reveal"><span class="num">01</span><h3>Register</h3><p>Create a donor profile with your blood group and location.</p></div>
+      <div class="process-step reveal"><span class="num">02</span><h3>Screening</h3><p>A quick health check confirms you're fit to donate today.</p></div>
+      <div class="process-step reveal"><span class="num">03</span><h3>Donate</h3><p>The draw itself takes 8–10 minutes, in a calm supervised setting.</p></div>
+      <div class="process-step reveal"><span class="num">04</span><h3>Recover</h3><p>Rest, rehydrate, and get matched to a request when you're ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Voices from the network</span>
+      <h2>Donors and patients, in their own words</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <p>"I found a donor within an hour of posting a critical request for my father. I still don't know how to thank her."</p>
+        <div class="testi-who"><div class="testi-avatar">HM</div><div><b>Hira M.</b><span>Patient, Lahore</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <p>"The dashboard reminds me the moment I'm eligible again. I've donated six times without ever missing the 90-day window."</p>
+        <div class="testi-who"><div class="testi-avatar">AR</div><div><b>Ali R.</b><span>Donor, O negative</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <p>"As a hospital coordinator, having a searchable, availability-filtered donor list has cut our response time in half."</p>
+        <div class="testi-who"><div class="testi-avatar">SK</div><div><b>Dr. Sana K.</b><span>City General Hospital</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Frequently asked</span>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Who is eligible to donate blood? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Most healthy adults 18–65 years old, weighing at least 50kg, with no recent major illness, surgery or high-risk travel. Our AI Assistant can check your specific situation once you're signed in.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How often can I donate? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Whole blood donation is typically safe every 90 days for men and every 120 days for women, giving your body time to fully replenish iron stores.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my information kept private? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Your contact details are only shared with a patient after you accept a match request — your profile is never made public to unregistered visitors.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do urgent requests get prioritised? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Every request is tagged Low, Medium, High or Critical. Critical requests are surfaced first to matching, available donors in the same city.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>We're here around the clock</h2>
+      <form class="contact-form" id="landingContactForm">
+        <div class="field"><label>Name</label><input type="text" required></div>
+        <div class="field"><label>Email</label><input type="email" required></div>
+        <div class="field"><label>Message</label><textarea rows="4" required></textarea></div>
+        <button class="btn btn-primary" type="submit">Send message</button>
+      </form>
+    </div>
+    <div class="contact-info-card reveal">
+      <h3>Emergency &amp; hospital info</h3>
+      <ul>
+        <li>📞 Emergency hotline: 1122</li>
+        <li>✉️ help@lifelinknetwork.org</li>
+        <li>🏥 Partnered with 5+ hospitals in Lahore</li>
+        <li>📍 lifelink HQ — Lahore, Pakistan</li>
+      </ul>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.070863414911!2d74.25514047959426!3d31.486083314467148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190237ddd47ef5%3A0xae6d0867a626ff0!2sSuperior%20College%20Women%20Campus%20Multan%20Road!5e1!3m2!1sen!2s!4v1783622703934!5m2!1sen!2s" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:var(--white);">
+          <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#FF5170" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          LifeLink
+        </div>
+        <p style="color:#B3ABA6;max-width:280px;margin-top:12px;">A community-driven blood donation and request network, built to close the gap between donors and patients.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">x</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div><h4>Navigate</h4><ul><li><a href="#about">About</a></li><li><a href="#benefits">Benefits</a></li><li><a href="#process">Process</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Account</h4><ul><li><a href="login.html">Log in</a></li><li><a href="signup.html">Sign up</a></li><li><a href="admin-login.html">Admin</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>help@lifelinknetwork.org</li><li>Emergency: 1122</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LifeLink Network. All rights reserved.</span>
+      <span>Built for demonstration purposes.</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

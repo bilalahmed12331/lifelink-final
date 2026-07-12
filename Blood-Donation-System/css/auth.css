@@ -1,0 +1,68 @@
+/* ==========================================================================
+   auth.css — Login & Signup pages
+   ========================================================================== */
+
+.auth-page{
+  min-height:100vh; display:grid; grid-template-columns:1fr 1fr; background:var(--white); overflow-x:hidden; width:100%;
+}
+.auth-side{
+  background:var(--ink); color:var(--white); display:flex; flex-direction:column; justify-content:space-between;
+  padding:56px; position:relative; overflow:hidden; min-width:0; flex-shrink:0;
+}
+.auth-side .logo{ color:var(--white); }
+.auth-side-content h2{ font-size:2.1rem; max-width:380px; margin-top:40px; }
+.auth-side-content p{ color:#C9C1BC; max-width:360px; }
+.auth-side-pulse{ position:absolute; bottom:-20px; left:-10px; right:-10px; opacity:.35; }
+.auth-side-pulse svg{ width:100%; height:120px; }
+
+.auth-main{ display:flex; align-items:center; justify-content:center; padding:48px 24px; overflow-x:hidden; min-width:0; width:100%; }
+.auth-card{ width:100%; max-width:460px; overflow-x:hidden; min-width:0; }
+.auth-card .back-link{ font-size:.85rem; color:var(--gray); display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
+.auth-card h1{ font-size:1.9rem; margin-bottom:6px; }
+.auth-card .sub{ color:var(--gray); margin-bottom:28px; }
+
+.field{ margin-bottom:18px; position:relative; }
+.field label{ display:block; font-size:.84rem; font-weight:600; margin-bottom:6px; color:var(--ink); }
+.field .input-wrap{ position:relative; }
+.field input, .field select, .field textarea{
+  width:100%; padding:12px 14px 12px 40px; border-radius:12px; border:1.5px solid var(--gray-light);
+  font-family:var(--font-body); font-size:.94rem; background:var(--white); color:var(--ink); transition:border-color .15s;
+}
+.field select{ padding-left:14px; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23847C78' stroke-width='2'%3E%3Cpath d='M2 4l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--red); }
+.field .icon{ position:absolute; left:13px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--gray); pointer-events:none; }
+.field.no-icon input{ padding-left:14px; }
+.field-error{ display:block; color:var(--red); font-size:.78rem; margin-top:5px; }
+.has-error input, .has-error select{ border-color:var(--red) !important; }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.field-hint{ font-size:.76rem; color:var(--gray); margin-top:5px; }
+.pw-toggle{ position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--gray); font-size:.78rem; font-weight:600; }
+
+.strength-meter{ display:flex; gap:4px; margin-top:8px; }
+.strength-meter span{ height:4px; flex:1; background:var(--gray-light); border-radius:2px; transition:background .2s; }
+.strength-meter.s1 span:nth-child(1){ background:var(--red); }
+.strength-meter.s2 span:nth-child(-n+2){ background:#E8A83A; }
+.strength-meter.s3 span:nth-child(-n+3){ background:#E8A83A; }
+.strength-meter.s4 span{ background:var(--success); }
+
+.auth-footer-link{ text-align:center; margin-top:24px; font-size:.9rem; color:var(--gray); }
+.auth-footer-link a{ color:var(--red); font-weight:600; }
+
+.role-toggle{ display:flex; gap:10px; margin-bottom:6px; }
+.role-toggle label{
+  flex:1; border:1.5px solid var(--gray-light); border-radius:12px; padding:12px; text-align:center;
+  cursor:pointer; font-size:.88rem; font-weight:600; transition:.15s;
+}
+.role-toggle input{ display:none; }
+.role-toggle input:checked + span{ color:var(--red); }
+.role-toggle label:has(input:checked){ border-color:var(--red); background:var(--red-tint); }
+
+@media (max-width:992px){
+  .auth-page{ grid-template-columns:1fr; }
+  .auth-side{ display:none; }
+  .auth-main{ padding:32px 20px; }
+}
+@media (max-width:576px){
+  .auth-main{ padding:24px 16px; }
+  .auth-card{ padding:20px; }
+}

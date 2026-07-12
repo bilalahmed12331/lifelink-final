@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donor Dashboard — LifeLink</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar-overlay" id="donorSidebarOverlay"></div>
+
+<div class="dash">
+  <aside class="sidebar" id="donorSidebar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 24"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#FF5170" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LifeLink
+    </a>
+    <div class="sidebar-user">
+      <div class="avatar" id="donorSideAvatar">--</div>
+      <div><b id="donorSideName">—</b><span id="donorSideRole">donor</span></div>
+    </div>
+    <nav class="side-nav">
+      <button data-view="home" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>Home</button>
+      <button data-view="donate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/></svg>Donate</button>
+      <button data-view="assistant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 10h.01M16 10h.01M8 15h8"/></svg>AI Assistant</button>
+      <button data-view="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.1z"/></svg>Contact</button>
+      <button class="logout-btn" id="donorLogoutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Logout</button>
+    </nav>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <button class="topbar-toggle" id="donorTopbarToggle"><span></span><span></span><span></span></button>
+      <div class="logo"><svg viewBox="0 0 40 24" width="30"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#DE1B3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+
+    <main class="dash-main">
+
+      <!-- ===================== HOME ===================== -->
+      <section class="dash-view active" id="view-home">
+        <div class="dash-head">
+          <div>
+            <h1>Welcome back, <span id="donorHomeName">Donor</span> 👋</h1>
+            <p>Here's what's happening with your donor profile today.</p>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:22px;">
+          <div class="widget"><b id="statBloodGroup">—</b><span>Your blood group</span></div>
+          <div class="widget"><b id="statAvailability">—</b><span>Availability status</span></div>
+          <div class="widget"><b id="statLastDonation">—</b><span>Last donation</span></div>
+          <div class="widget"><b id="statEligible">—</b><span>Days until eligible</span></div>
+        </div>
+
+        <div class="grid-2" style="align-items:start;margin-bottom:22px;">
+          <div class="card">
+            <h3 style="margin-bottom:14px;">Quick actions</h3>
+            <div class="grid-2">
+              <div class="quick-card" data-goto="donate">
+                <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/></svg></div>
+                <h4>Update donation info</h4><p>Change availability or log a new donation.</p>
+              </div>
+              <div class="quick-card" data-goto="assistant">
+                <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 10h.01M16 10h.01M8 15h8"/></svg></div>
+                <h4>Ask the AI Assistant</h4><p>Check eligibility or get donation tips.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:12px;">Emergency announcement</h3>
+            <div class="announcement">🚨 Critical shortage of <b>O− and AB+</b> blood reported at City General Hospital, Lahore. Available donors in the area are encouraged to check the Donate page.</div>
+            <h3 style="margin:20px 0 10px;">Blood donation tip</h3>
+            <p style="font-size:.9rem;">Drink an extra glass of water and eat an iron-rich meal a few hours before donating to help your body recover faster.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:14px;">Recent activity</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Date</th><th>Activity</th><th>Location</th><th>Status</th></tr></thead>
+              <tbody id="recentActivityBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== DONATE ===================== -->
+      <section class="dash-view" id="view-donate">
+        <div class="dash-head"><div><h1>Donate</h1><p>Keep your donor information current so patients can find you.</p></div></div>
+
+        <div class="grid-2" style="align-items:start;">
+          <div class="card">
+            <h3 style="margin-bottom:16px;">Your donation information</h3>
+            <form id="donorDonateForm">
+              <div class="field-row">
+                <div class="field"><label>Blood group</label>
+                  <select id="donorDonateBloodGroup">
+                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                  </select>
+                </div>
+                <div class="field"><label>Current location</label><input type="text" id="donorDonateLocation"></div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label>Phone number</label><input type="tel" id="donorDonatePhone"></div>
+                <div class="field"><label>Last donation date</label><input type="date" id="donorDonateLastDate"></div>
+              </div>
+              <div class="field">
+                <label>Availability status</label>
+                <select id="donorDonateAvailability"><option value="available">Available</option><option value="unavailable">Unavailable</option></select>
+              </div>
+              <div class="field"><label>Medical conditions (optional)</label><textarea id="donorDonateMedical" rows="3"></textarea></div>
+              <div style="display:flex;gap:12px;">
+                <button type="submit" class="btn btn-primary">Save information</button>
+                <button type="button" class="btn btn-ghost" id="donorUpdateStatusBtn">Update status only</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom:14px;">Current availability</h3>
+            <p>Status: <span class="badge" id="donorAvailabilityBadge">Available</span></p>
+            <h3 style="margin:20px 0 10px;">Donation history</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Date</th><th>Location</th></tr></thead>
+                <tbody id="donorDonationHistoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== AI ASSISTANT ===================== -->
+      <section class="dash-view" id="view-assistant">
+        <div class="dash-head"><div><h1>AI Assistant</h1><p>Ask about eligibility, timing, nutrition, or the benefits of donating.</p></div></div>
+        <div class="chat-shell">
+          <div class="chat-header"><span class="dot"></span><b>Pulse Assistant</b><span style="color:var(--gray);font-size:.8rem;">— donor guidance</span></div>
+          <div class="chat-body" id="donorChatBody"></div>
+          <div class="chat-suggestions" id="donorChatSuggestions">
+            <button data-q="Can I donate blood today?">Can I donate today?</button>
+            <button data-q="What foods should I eat before donating?">Food before donating?</button>
+            <button data-q="Am I eligible to donate?">Am I eligible?</button>
+            <button data-q="How often can I donate blood?">How often can I donate?</button>
+            <button data-q="Benefits of blood donation">Benefits of donating</button>
+          </div>
+          <form class="chat-input" id="donorChatForm">
+            <input type="text" id="donorChatInput" placeholder="Type your question…" autocomplete="off">
+            <button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section class="dash-view" id="view-contact">
+        <div class="dash-head"><div><h1>Contact</h1><p>Reach the Pulse team or find hospital &amp; emergency information.</p></div></div>
+        <div class="grid-2" style="align-items:start;">
+          <div class="card">
+            <h3 style="margin-bottom:16px;">Send us a message</h3>
+            <form id="donorContactForm">
+              <div class="field"><label>Subject</label><input type="text" required></div>
+              <div class="field"><label>Message</label><textarea rows="4" required></textarea></div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+            </form>
+          </div>
+          <div class="card contact-info-card">
+            <h3 style="margin-bottom:14px;">Hospital &amp; emergency info</h3>
+            <ul style="font-size:.9rem;color:var(--ink-soft);">
+              <li style="padding:6px 0;">📞 Emergency hotline: 1122</li>
+              <li style="padding:6px 0;">✉️ help@pulsenetwork.org</li>
+              <li style="padding:6px 0;">🏥 City General Hospital — Ferozepur Road, Lahore</li>
+              <li style="padding:6px 0;">🏥 Services Hospital — Jail Road, Lahore</li>
+            </ul>
+            <div style="margin-top:14px;background:var(--white);border-radius:12px;padding:14px;text-align:center;color:var(--gray);font-family:var(--font-mono);font-size:.78rem;">[ Google Map placeholder ]</div>
+            <div class="footer-social" style="margin-top:14px;">
+              <a href="#" style="background:var(--white);color:var(--red);">f</a>
+              <a href="#" style="background:var(--white);color:var(--red);">x</a>
+              <a href="#" style="background:var(--white);color:var(--red);">ig</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/donor.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign up — LifeLink</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-side">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg"><polyline points="0,14 9,14 12,5 17,20 21,10 24,14 40,14" fill="none" stroke="#FF5170" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LifeLink
+    </a>
+    <div class="auth-side-content">
+      <h2>Create your profile as a donor or a patient in under a minute.</h2>
+      <p>Choose your role below — you can always log out and register a second account for the other role.</p>
+    </div>
+    <div class="auth-side-pulse">
+      <svg viewBox="0 0 500 120" preserveAspectRatio="none"><polyline points="0,60 100,60 120,20 145,100 165,40 185,60 260,60 285,10 305,110 330,60 500,60" fill="none" stroke="#FF5170" stroke-width="2"/></svg>
+    </div>
+  </div>
+  <div class="auth-main">
+    <div class="auth-card">
+      <a href="index.html" class="back-link">← Back to home</a>
+      <h1>Create your account</h1>
+      <p class="sub">Join the network as a donor or as a patient.</p>
+
+      <form id="signupForm" novalidate>
+
+        <label style="font-size:.84rem;font-weight:600;margin-bottom:8px;display:block;">I am registering as a</label>
+        <div class="role-toggle">
+          <label><input type="radio" name="role" value="donor" checked><span>🩸 Donor</span></label>
+          <label><input type="radio" name="role" value="patient"><span>🏥 Patient</span></label>
+        </div>
+
+        <div class="field" style="margin-top:18px;">
+          <label for="fullName">Full name</label>
+          <div class="input-wrap"><input type="text" id="fullName" class="no-icon-input" required></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field"><label for="username">Username</label><input type="text" id="username" required></div>
+          <div class="field"><label for="email">Email address</label><input type="email" id="email" required></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <div class="strength-meter" id="strengthMeter"><span></span><span></span><span></span><span></span></div>
+            <div class="field-hint">Min 8 characters, upper + lower case, and a number.</div>
+          </div>
+          <div class="field"><label for="confirmPassword">Confirm password</label><input type="password" id="confirmPassword" required></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field"><label for="phone">Phone number</label><input type="tel" id="phone" placeholder="03XX-XXXXXXX" required></div>
+          <div class="field"><label for="dob">Date of birth</label><input type="date" id="dob" required></div>
+        </div>
+
+        <div class="field"><label for="address">Address</label><input type="text" id="address" placeholder="Street, city" required></div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="bloodGroup">Blood group</label>
+            <select id="bloodGroup" required>
+              <option value="">Select</option>
+              <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="">Select</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="signupSubmit">Create account</button>
+      </form>
+
+      <p class="auth-footer-link">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
