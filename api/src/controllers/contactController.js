@@ -9,7 +9,7 @@ const submitMessage = async (req, res) => {
         }
         
         await pool.query(
-            'INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)',
+            'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3)',
             [name, email, message]
         );
         

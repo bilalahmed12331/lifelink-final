@@ -7,35 +7,35 @@ const register = async (req, res) => {
     try {
         const { fullName, username, email, password, phone, dob, address, bloodGroup, gender, role } = req.body;
         
-        const [existingUsers] = await pool.query(
-            'SELECT id FROM users WHERE email = ?',
+        const existingUsers = await pool.query(
+            'SELECT id FROM users WHERE email = $1',
             [email]
         );
         
-        if (existingUsers.length > 0) {
+        if (existingUsers.rows.length > 0) {
             return res.status(400).json({ message: 'Email already exists' });
         }
         
         const hashedPassword = await bcrypt.hash(password, 10);
         
-        const [result] = await pool.query(
+        const result = await pool.query(
             `INSERT INTO users (full_name, username, email, password, phone, date_of_birth, address, blood_group, gender, role) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id`,
             [fullName, username, email, hashedPassword, phone, dob, address, bloodGroup, gender, role || 'donor']
         );
         
         const token = jwt.sign(
-            { id: result.insertId, email, role: role || 'donor', fullName },
+            { id: result.rows[0].id, email, role: role || 'donor', fullName },
             process.env.JWT_SECRET,
             { expiresIn: '7d' }
         );
         
-        const [newUser] = await pool.query(
-            'SELECT id, full_name, username, email, phone, date_of_birth, address, blood_group, gender, role, city, availability, last_donation, medical_notes, created_at FROM users WHERE id = ?',
-            [result.insertId]
+        const newUser = await pool.query(
+            'SELECT id, full_name, username, email, phone, date_of_birth, address, blood_group, gender, role, city, availability, last_donation, medical_notes, created_at FROM users WHERE id = $1',
+            [result.rows[0].id]
         );
         
-        res.status(201).json({ token, user: newUser[0] });
+        res.status(201).json({ token, user: newUser.rows[0] });
     } catch (error) {
         console.error('Register error:', error);
         res.status(500).json({ message: 'Server error' });
@@ -46,16 +46,16 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         
-        const [users] = await pool.query(
-            'SELECT * FROM users WHERE email = ?',
+        const users = await pool.query(
+            'SELECT * FROM users WHERE email = $1',
             [email]
         );
         
-        if (users.length === 0) {
+        if (users.rows.length === 0) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
         
-        const user = users[0];
+        const user = users.rows[0];
         
         if (user.is_blocked) {
             return res.status(403).json({ message: 'Account is blocked' });
@@ -86,16 +86,16 @@ const adminLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
         
-        const [admins] = await pool.query(
-            'SELECT * FROM admin_accounts WHERE email = ?',
+        const admins = await pool.query(
+            'SELECT * FROM admin_accounts WHERE email = $1',
             [email]
         );
         
-        if (admins.length === 0) {
+        if (admins.rows.length === 0) {
             return res.status(400).json({ message: 'Invalid admin credentials' });
         }
         
-        const admin = admins[0];
+        const admin = admins.rows[0];
         
         if (admin.password !== password) {
             return res.status(400).json({ message: 'Invalid admin credentials' });
@@ -116,16 +116,16 @@ const adminLogin = async (req, res) => {
 
 const getProfile = async (req, res) => {
     try {
-        const [users] = await pool.query(
-            'SELECT id, full_name, username, email, phone, date_of_birth, address, blood_group, gender, role, city, availability, last_donation, medical_notes, created_at FROM users WHERE id = ?',
+        const users = await pool.query(
+            'SELECT id, full_name, username, email, phone, date_of_birth, address, blood_group, gender, role, city, availability, last_donation, medical_notes, created_at FROM users WHERE id = $1',
             [req.user.id]
         );
         
-        if (users.length === 0) {
+        if (users.rows.length === 0) {
             return res.status(404).json({ message: 'User not found' });
         }
         
-        res.json(users[0]);
+        res.json(users.rows[0]);
     } catch (error) {
         console.error('Get profile error:', error);
         res.status(500).json({ message: 'Server error' });
